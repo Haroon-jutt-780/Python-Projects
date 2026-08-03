@@ -1,16 +1,16 @@
 # 📰 UAF News Web Scraper
 
-A high-performance, robust Python web scraper built with **Playwright** and **BeautifulSoup4** to extract the latest official news announcements, headlines, timestamps, event locations, and detail links from the **University of Agriculture, Faisalabad (UAF)** news portal.
+A high-performance, interactive Python web scraper built with **Playwright** and **BeautifulSoup4** to extract the latest official news announcements, headlines, timestamps, event locations, and detail links from the **University of Agriculture, Faisalabad (UAF)** news portal.
 
 ---
 
 ## 🚀 Key Features
 
-* **Configurable Scraping Limit:** Easily adjust the `MAX_NEWS_ITEMS` constant at the top of the script to scrape any desired number of news articles.
+* **Interactive CLI Interface:** Dynamically prompts the user at runtime for the exact number of news articles to scrape, complete with input validation and error handling.
+* **Smart Latency Reduction:** Initiates initial page loading in the background while waiting for user input to speed up execution.
+* **Guaranteed Resource Cleanup:** Engineered with `try...finally` blocks to guarantee Chromium browser processes close cleanly without memory leaks—even if canceled with `Ctrl + C`.
 * **Dual-Phase Extraction Strategy:** Scrapes listing card metadata (time, location) from the main catalog page and seamlessly combines it with full, non-truncated headlines and dates from individual detail pages.
-* **Defensive Scraping Architecture:** Features element existence checks, fallback selector chains, and dynamic URL assembly using `urljoin` to prevent crashes from missing DOM elements or broken links.
-* **Structured CLI Presentation:** Formats multi-line headlines using Python's native `textwrap` module, complete with section dividers and emojis for a polished, readable terminal user interface.
-* **Headless Automation:** Powered by Playwright Chromium running in headless mode for fast, modern JavaScript-enabled page rendering.
+* **Structured UI Presentation:** Automatically manages terminal screens and formats multi-line headlines using Python's native `textwrap` module for a polished CLI interface.
 
 ---
 
@@ -20,19 +20,16 @@ A high-performance, robust Python web scraper built with **Playwright** and **Be
 * **Browser Automation:** [Playwright](https://playwright.dev/python/)
 * **HTML Parsing:** [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 * **Parser Engine:** `lxml`
-* **Formatting & Utilities:** `textwrap`, `urllib.parse`
+* **Formatting & Utilities:** `textwrap`, `os`
 
 ---
 
-## ⚙️ Configuration & Usage
+## ⚙️ Installation & Setup
 
-### 1. Setting the News Limit
-At the top of `main.py`, modify the `MAX_NEWS_ITEMS` constant to set how many articles you want to scrape:
-
-```python
-# --- CONFIGURATION CONSTANTS ---
-MAX_NEWS_ITEMS = 3  # Change this to 5, 10, etc., to scrape more articles
-```
+1. **Navigate to the project directory:**
+   ```bash
+   cd "UAF Latest News Scraper"
+   ```
 
 ### 2. Running the Scraper
 Run the script directly from your active virtual environment terminal:

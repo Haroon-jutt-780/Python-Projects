@@ -2,6 +2,9 @@ import textwrap
 from bs4 import BeautifulSoup
 from playwright.sync_api import Playwright, sync_playwright
 
+# --- CONFIGURATION CONSTANTS ---
+MAX_NEWS_ITEMS = 3  # Change this to scrape more/fewer articles
+
 
 def run(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=True)
@@ -17,7 +20,7 @@ def run(playwright: Playwright) -> None:
     cards = soup.select('.course-item')
     new_items = []
 
-    for card in cards[:3]:
+    for card in cards[:MAX_NEWS_ITEMS]:
         #Extracting URLs
         a_tag = card.select_one('a[href*="NewsDetail"]')
         relative_path = a_tag['href'] if a_tag else ""

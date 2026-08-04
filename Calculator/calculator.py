@@ -1,4 +1,5 @@
 """
+MADED WITH CLAUDE! NOT MY OWN CODE
 Modern GUI Calculator
 ----------------------
 A clean, professional-looking calculator built with Python's built-in
